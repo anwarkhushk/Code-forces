@@ -1,21 +1,39 @@
-#include<iostream>
-#include<string>
-using namespace std;
-int main(){
+#include <iostream>
 
-string n;
-cin>>n;
-int counter=0;
-for(int i=1; i<n.length(); i++){
-    if(n[i]!=n[i-1]){
-        counter++;
+#include <string>
+using namespace std;
+int main()
+{
+    string str;
+    cin >> str;
+    int count = 0;
+    for (int i = 0; str[i] != '\0'; i++)
+    {
+        bool found = false;
+        for (int j = 0; j < i; j++)
+        {
+            if (str[i] == str[j])
+            {
+                found = true;
+
+                break;
+            }
+        }
+        if (!found)
+        {
+            count++;
+        }
     }
-}
-cout<<counter;
-   if(counter%2==0){
-        cout<<"CHAT WITH HER"<<endl;
+
+    // cout<<count<<endl;
+    if (count % 2 == 0)
+    {
+        cout << "CHAT WITH HER!" << endl;
     }
-    else{
-        cout<<"IGNORE HIM"<<endl;
+    else
+    {
+        cout << "IGNORE HIM!" << endl;
     }
+
+    return 0;
 }

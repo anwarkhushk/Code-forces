@@ -1,22 +1,41 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-int main(){
-    int n=4,count=0;
-    // bool chk=false;
-    int arr[n];
-    for(int i=0;i<n;i++){
-        cin>>arr[i];
+
+int main() {
+    int n;
+    cin >> n;
+
+    int a[100];   
+
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
     }
-    for(int i=0;i<n-1;i++){
-        for(int j=n-1;j>i;j++){
-            if(arr[j-1]<arr[j]){
-                
-                swap(arr[j-1],arr[j]);
-                count++;
-              
-            }
+
+    int maxVal = a[0];
+    int minVal = a[0];
+    int maxIndex = 0;      
+    int minIndex = 0;     
+
+    for (int i = 1; i < n; i++) {
+        if (a[i] > maxVal) {
+            maxVal = a[i];
+            maxIndex = i;
         }
-        
     }
-cout<<count<<endl;
+
+    minVal = a[0];
+    for (int i = 0; i < n; i++) {
+        if (a[i] <= minVal) {
+            minVal = a[i];
+            minIndex = i;  
+        }
+    }
+
+    int moves = maxIndex + (n - 1 - minIndex);
+    if (maxIndex > minIndex) {
+        moves--;
+    }
+
+    cout << moves << endl;
+    return 0;
 }
