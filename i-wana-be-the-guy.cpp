@@ -21,11 +21,9 @@ int main() {
         cin >> Y[i];
     }
 
-    // Checking from level 1 to n
     for(int level = 1; level <= n; level++){
         bool found = false;
 
-        // Check in X
         for(int i = 0; i < p; i++){
             if(X[i] == level){
                 found = true;
@@ -33,7 +31,6 @@ int main() {
             }
         }
 
-        // Check in Y (only if not found already)
         if(!found){
             for(int i = 0; i < q; i++){
                 if(Y[i] == level){
@@ -43,14 +40,14 @@ int main() {
             }
         }
 
-        // If not found in X or Y → cannot complete game
+ 
         if(!found){
             cout << "Oh, my keyboard!";
             return 0;
         }
     }
 
-    // If all levels found
+
     cout << "I become the guy.";
     return 0;
 }
